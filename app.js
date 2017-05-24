@@ -40,14 +40,27 @@ bot.dialog('/', [
     },
     function (session, results) {
         //session.say("You said your name is '%s'", results.response.entity);
-        console.log(session.message.text);
+        //console.log(session.message.text);
 
-        builder.Prompts.text(session, 'You said '+ session.message.text, {            
-        speak: 'You said ' + session.message.text +''
+//        builder.Prompts.text(session, 'You said '+ session.message.text, {            
+//        speak: 'You said ' + session.message.text +''
         
-        });
+//        });
 
-        session.beginDialog('/restaurants');
+        var msg = new builder.Message(session)
+            .attachments([
+                new builder.HeroCard(session)
+                    .title("Your name")
+                    .subtitle("You said that your name was "+ session.message.text)
+                    .images([
+                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
+                    ])
+                    .tap(builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Space_Needle"))
+            ]);
+        //session.send(msg);
+        session.endDialog(msg);
+
+        
     }
 ]);
 
