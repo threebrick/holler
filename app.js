@@ -23,8 +23,8 @@ server.post('https://hollerskill.azurewebsites.net/api/messages', connector.list
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector);
 
-bot.beginDialogAction('restaurants', '/restaurants', { matches: /^restaurants|find restaurants|search restaurants/i });
-bot.beginDialogAction('events', '/events', { matches: /^events|find events|search events/i });
+//bot.beginDialogAction('restaurants', '/restaurants', { matches: /^restaurants|find restaurants|search restaurants/i });
+//bot.beginDialogAction('events', '/events', { matches: /^events|find events|search events/i });
 
 bot.dialog('/', [
     function (session) {
@@ -49,48 +49,48 @@ bot.dialog('/', [
     }
 ]);
 
-bot.dialog('/restaurants', [
-    function (session) {
+//bot.dialog('/restaurants', [
+//    function (session) {
 
     //   session.userData.faqTest = "startFAQ"; 
 
-       var msg = new builder.Message(session)
-            .attachments([
-                new builder.HeroCard(session)
-                    .title("Hero Card")
-                    .subtitle("The Space Needle is an observation tower in Seattle, Washington, a landmark of the Pacific Northwest, and an icon of Seattle.")
-                    .images([
-                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
-                    ])
-                    .tap(builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Space_Needle"))
-            ]);
+//       var msg = new builder.Message(session)
+//            .attachments([
+//                new builder.HeroCard(session)
+//                    .title("Hero Card")
+//                    .subtitle("The Space Needle is an observation tower in Seattle, Washington, a landmark of the Pacific Northwest, and an icon of Seattle.")
+//                    .images([
+//                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
+//                    ])
+//                    .tap(builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Space_Needle"))
+//            ]);
         //session.send(msg);
-        session.endDialog(msg);
-    }
-]);
-bot.beginDialogAction('restaurants', '/restaurants'); 
+//        session.endDialog(msg);
+//    }
+//]);
+//bot.beginDialogAction('restaurants', '/restaurants'); 
 
 
-bot.dialog('/events', [
-    function (session) {
+//bot.dialog('/events', [
+//    function (session) {
 
     //   session.userData.faqTest = "startFAQ"; 
 
-        msg = new builder.Message(session)
-            .attachments([
-                new builder.ThumbnailCard(session)
-                    .title("Thumbnail Card")
-                    .subtitle("Pike Place Market is a public market overlooking the Elliott Bay waterfront in Seattle, Washington, United States.")
-                    .images([
-                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
-                    ])
-                    .tap(builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Pike_Place_Market"))
-            ]);
+//        msg = new builder.Message(session)
+//            .attachments([
+//                new builder.ThumbnailCard(session)
+//                    .title("Thumbnail Card")
+//                    .subtitle("Pike Place Market is a public market overlooking the Elliott Bay waterfront in Seattle, Washington, United States.")
+//                    .images([
+//                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
+//                    ])
+//                    .tap(builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Pike_Place_Market"))
+//            ]);
         //session.endDialog(msg);
-        session.endDialog(msg);
-    }
-]);
-bot.beginDialogAction('events', '/events'); 
+//        session.endDialog(msg);
+//    }
+//]);
+//bot.beginDialogAction('events', '/events'); 
 
 server.get('/', restify.serveStatic({
  directory: __dirname,
