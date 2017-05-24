@@ -23,8 +23,8 @@ server.post('https://hollerskill.azurewebsites.net/api/messages', connector.list
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector);
 
-//bot.beginDialogAction('restaurants', '/restaurants', { matches: /^restaurants|find restaurants|search restaurants/i });
-//bot.beginDialogAction('events', '/events', { matches: /^events|find events|search events/i });
+bot.beginDialogAction('restaurants', '/restaurants', { matches: /^restaurants|find restaurants|search restaurants/i });
+bot.beginDialogAction('events', '/events', { matches: /^events|find events|search events/i });
 
 bot.dialog('/', [
     function (session) {
