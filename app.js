@@ -46,6 +46,8 @@ bot.dialog('/', [
         speak: 'You said ' + session.message.text +''
         
         });
+
+        session.beginDialog('/restaurants');
     }
 ]);
 
