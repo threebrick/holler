@@ -63,11 +63,11 @@ bot.dialog('/', [
 var card = new builder.HeroCard(session)
         .title('Testing Cortana Skills')
         .buttons([
-            builder.CardAction.imBack(session, '/events', 'Find Events'),
-            builder.CardAction.imBack(session, '/businesses', 'Search Businesses')
+            builder.CardAction.imBack(session, 'events', 'Find Events'),
+            builder.CardAction.imBack(session, 'businesses', 'Search Businesses')
         ]);
     var msg = new builder.Message(session)
-        .speak(speak(session, 'You said that your name was '+ session.message.text))
+        .speak(speak(session, 'You said that your name was '+ session.message.text +'.'))
         .addAttachment(card)
         .inputHint(builder.InputHint.acceptingInput); // Tell Cortana to accept input
     session.send(msg).endDialog();
