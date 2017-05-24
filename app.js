@@ -67,7 +67,7 @@ var card = new builder.HeroCard(session)
             builder.CardAction.imBack(session, 'businesses', 'Search Businesses')
         ]);
     var msg = new builder.Message(session)
-        .speak(speak(session, 'You said that your name was '+ session.message.text +'.'))
+        .speak(speak(session, 'You said that your name was'))
         .addAttachment(card)
         .inputHint(builder.InputHint.acceptingInput); // Tell Cortana to accept input
     session.send(msg).endDialog();
