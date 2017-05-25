@@ -76,6 +76,20 @@ bot.dialog('/', [
     }
 ]);
 
+bot.dialog('HelpDialog', function (session) {
+    var card = new builder.HeroCard(session)
+        .title('help_title')
+        .buttons([
+            builder.CardAction.imBack(session, 'events', 'Events'),
+            builder.CardAction.imBack(session, 'businesses', 'Businesses')
+        ]);
+    var msg = new builder.Message(session)
+        .speak(speak(session, 'Get help'))
+        .addAttachment(card)
+        .inputHint(builder.InputHint.acceptingInput);
+    session.send(msg).endDialog();
+}).triggerAction({ matches: /help/i });
+
 bot.dialog('/restaurants', [
     function (session) {
 
