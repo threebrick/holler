@@ -42,10 +42,10 @@ bot.dialog('/', [
         //session.say("You said your name is '%s'", results.response.entity);
         //console.log(session.message.text);
 
-        builder.Prompts.text(session, 'You said '+ session.message.text, {            
-        speak: 'You said ' + session.message.text +''
+ //       builder.Prompts.text(session, 'You said '+ session.message.text, {            
+ //       speak: 'You said ' + session.message.text +''
         
-        });
+//        });
 
  //       var msg = new builder.Message(session)
 //            .attachments([
@@ -66,7 +66,7 @@ var msg = new builder.Message(session)
         contentType: "application/vnd.microsoft.card.adaptive",
         content: {
             type: "AdaptiveCard",
-            speak: "<s>Your  meeting about \"Adaptive Card design session\"<break strength='weak'/> is starting at 12:30pm</s><s>Do you want to snooze <break strength='weak'/> or do you want to send a late notification to the attendees?</s>",
+            speak: "<s>Your said <break strength='weak'/> " + session.message.text + "</s><s>Do you want to snooze <break strength='weak'/> or do you want to send a late notification to the attendees?</s>",
                body: [
                     {
                         "type": "TextBlock",
